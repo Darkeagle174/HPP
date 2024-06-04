@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <div class="container">
+            <h2>House Price Prediction</h2>
+            <input type="number" id="beds" placeholder="Number of Beds">
+            <input type="number" step="0.5" id="baths" placeholder="Number of Baths">
+            <input type="number" id="size" placeholder="Size (sqft)">
+            <input type="number" id="lot_size" placeholder="Lot Size (sqft)">
+            <input type="number" id="zip_code" placeholder="Zip Code">
+            <button onclick="predictPrice()">Predict Price</button>
+            <div class="result" id="result"></div>
+        </div>
+    
+        <script>
+            function predictPrice() {
+                const beds = document.getElementById('beds').value;
+                const baths = document.getElementById('baths').value;
+                const size = document.getElementById('size').value;
+                const lot_size = document.getElementById('lot_size').value;
+                const zip_code = document.getElementById('zip_code').value;
+    
+                fetch('http://127.0.0.1:5000/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ beds, baths, size, lot_size, zip_code })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerText = `Predicted Price: $${data.price}`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        </script>
+</body>
+</html>
