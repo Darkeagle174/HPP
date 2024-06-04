@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import pandas as pd
 import numpy as np
 import joblib
@@ -9,6 +9,10 @@ app = Flask(__name__)
 # Load the trained model and scaler
 model = joblib.load('house_price_model.pkl')
 scaler = joblib.load('scaler.pkl')
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
