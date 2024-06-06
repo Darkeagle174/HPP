@@ -6,7 +6,6 @@ from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
 
-# Load the trained model and scaler
 model = joblib.load('house_price_model.pkl')
 scaler = joblib.load('scaler.pkl')
 

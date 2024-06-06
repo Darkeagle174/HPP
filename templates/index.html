@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Price Predictor</title>
-    <style>
-        body {
+</head>
+<style>
+    body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -13,17 +14,29 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(20, 20, 20);
+    background-image: url("https://images.pexels.com/photos/286744/pexels-photo-286744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .container {
-    background: #fff;
+    max-width: 600px;
+    margin: 20px auto;
     padding: 20px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+h2{
+    color: #fff;
+}
 input {
     display: block;
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -43,8 +56,7 @@ button:hover {
 .result {
     margin-top: 20px;
 }
-    </style>
-</head>
+</style>
 <body>
         <div class="container">
             <h2>House Price Prediction</h2>
